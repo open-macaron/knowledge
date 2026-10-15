@@ -134,7 +134,8 @@ Approvals are checked by a workflow rather than GitHub's branch protection, so t
 - For a pull request from a fork, GitHub runs **the pull request's own copy** of `check.yml` and `review.yml`. They get no write permission and no secret, and nothing trusts what they do: they only wake `merge` up. A pull request can even add a workflow with the same name; that changes nothing.
 - `merge.yml` always runs **from `main`**. From the event that woke it up it uses only the commit SHA, to find which open pull request to look at, never as proof of anything. It ignores the triggering run's result, outputs and branch name.
 - Everything `merge` decides on comes from GitHub's API or from `main`: reviews, changed files, `OWNERS.yaml`. The pull request's files are only read as data by `knowledge-cli`, which is downloaded from a pinned release and checked by sha256. Nothing from the pull request is executed.
-- Only the job that merges has write permission. It never checks out the pull request.
+- Only the job that merges has write permission. It never checks out the pull request. The job that does check it out (to validate it) can only read, and no workflow here uses a cache, so there is nothing to poison for `main`.
+- The repository has no secrets.
 - `merge` runs one at a time; a burst of triggers collapses into one queued run.
 
 The worst a malicious pull request can do is make `merge` evaluate pull requests more often.

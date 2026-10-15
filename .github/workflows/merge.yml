@@ -21,8 +21,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  KNOWLEDGE_CLI_URL: https://github.com/open-macaron/macaron/releases/download/knowledge-cli-ee6eb2ad4cd9a15ac1ec6d907fcd49dd7c329c1f/knowledge-cli.mjs
-  KNOWLEDGE_CLI_SHA256: "b3eb08cf54418367f7dd874ef75547a1c6ed8a0db9b6d49ce824835312851584"
+  KNOWLEDGE_CLI_URL: https://github.com/open-macaron/macaron/releases/download/knowledge-cli-6a5355c77e54e78284f372275ec848be7f50c029/knowledge-cli.mjs
+  KNOWLEDGE_CLI_SHA256: "a9bdc0cc20fbc93aee462383eb18c26f821b5f85d323bd0f710448b7344fd879"
 
 jobs:
   find:
@@ -58,12 +58,16 @@ jobs:
     outputs:
       valid: ${{ steps.validate.outputs.valid }}
     steps:
-      # The pull request's files, as data. No credentials kept, nothing from them is run.
+      # The pull request's files, read as data by knowledge-cli. What keeps this safe in a
+      # workflow_run context: this job's token can only read, the repository has no secrets,
+      # no credentials are kept, nothing from the checkout is executed, and no workflow here
+      # uses a cache (so nothing can be poisoned for main). Keep all of these true.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: refs/pull/${{ needs.find.outputs.pr }}/head
           path: pr
           persist-credentials: false
+          allow-unsafe-pr-checkout: true
       - name: the checkout is the commit being evaluated
         env:
           HEAD_SHA: ${{ needs.find.outputs.sha }}
