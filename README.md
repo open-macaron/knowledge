@@ -114,15 +114,18 @@ Find an account's id with `gh api users/<login> --jq .id`. **The id is what coun
 `merge` merges a pull request only when **all** of these hold:
 
 - every changed path (both sides of a rename) is inside `global/`, `projects/<project>/` or `repos/<owner>/<repo>/`, and that folder's `OWNERS.yaml` **already exists on `main`**;
-- for each of those folders, an owner listed in its `OWNERS.yaml` **on `main`** (by id) approved **the latest commit** of the pull request, and no owner of that folder has a standing "changes requested";
+- for each of those folders, an owner listed in its `OWNERS.yaml` **on `main`** (by id) has a standing approval on **the latest commit** of the pull request, and no owner of that folder has a standing "changes requested";
 - the author's own approval doesn't count;
 - the files are valid, checked by the pinned `knowledge-cli`.
 
 It then merges exactly the commit it checked (squash): if something was pushed in the meantime, GitHub refuses.
 
+**Approvals and new pushes.** `main`'s ruleset has GitHub dismiss approvals whenever a push changes what the pull request proposes, and `merge` never counts a dismissed approval. A push that only brings in `main` (*Update branch*) doesn't change the proposal: GitHub keeps the approvals on it. Both behaviours were verified on #1 and #4.
+
 Consequences:
 
-- **Pushing again after an approval** needs a new approval.
+- **Changing the content after an approval** needs a new approval.
+- **A branch behind `main` on `.github/workflows/`** can't be merged by a workflow (GitHub counts it as changing workflows). `merge` says so; recreate the branch from `main` with the same changes, or a maintainer uses *Update branch*.
 - **A pull request touching two projects** needs an owner of each.
 - **Owners manage their own `OWNERS.yaml`:** a change to it is approved by the owners currently on `main`.
 - **New folders, `.github/`, this README and other root files** are merged by the platform team by hand. That's also how a new project or repository gets its first `OWNERS.yaml`.
