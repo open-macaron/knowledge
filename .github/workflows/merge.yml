@@ -58,12 +58,16 @@ jobs:
     outputs:
       valid: ${{ steps.validate.outputs.valid }}
     steps:
-      # The pull request's files, as data. No credentials kept, nothing from them is run.
+      # The pull request's files, read as data by knowledge-cli. What keeps this safe in a
+      # workflow_run context: this job's token can only read, the repository has no secrets,
+      # no credentials are kept, nothing from the checkout is executed, and no workflow here
+      # uses a cache (so nothing can be poisoned for main). Keep all of these true.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: refs/pull/${{ needs.find.outputs.pr }}/head
           path: pr
           persist-credentials: false
+          allow-unsafe-pr-checkout: true
       - name: the checkout is the commit being evaluated
         env:
           HEAD_SHA: ${{ needs.find.outputs.sha }}
