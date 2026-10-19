@@ -17,6 +17,7 @@ global/                       applies to every repository
 projects/<project>/           every repository of a project (same names as macaron's config/projects/)
 ├── OWNERS.yaml
 ├── rules/<slug>.md
+├── rules/<category>/<slug>.md  optional grouping, e.g. rules/tests/, rules/svelte/
 └── lessons/<slug>.md
 repos/<owner>/<repo>/         one upstream repository (its slug, not the bot's fork)
 ├── OWNERS.yaml
@@ -25,7 +26,9 @@ repos/<owner>/<repo>/         one upstream repository (its slug, not the bot's f
 └── lessons/<slug>.md
 ```
 
-- `<slug>` is kebab-case (`no-runtime-json-read`). A rule's id is `<scope>/<slug>`: `global/…`, `<project>/…` or `<owner>/<repo>/…`. Review tables cite it, so **an id is never reused** for another rule; delete a rule rather than repurpose it.
+- `<slug>` is kebab-case (`no-runtime-json-read`). A rule's id is `<scope>/<slug>`: `global/…`, `<project>/…` or `<owner>/<repo>/…`.
+- Rules can be grouped in **one** category folder, in any folder that has rules: `rules/<category>/<slug>.md`. The category becomes part of the id, like an ESLint plugin rule: `projects/podman-desktop/rules/tests/prefer-reset-all-mocks.md` is `podman-desktop/tests/prefer-reset-all-mocks`. Name rules after what they check: `no-…` forbids a pattern, `prefer-…` asks for one. A category is kebab-case and can't be `lessons`, and lessons stay flat.
+- Review tables cite a rule's id, so **an id is never reused** for another rule; delete a rule rather than repurpose it.
 - A rule applies only where its folder applies: a rule in `projects/sandbox/` never reaches another project's repositories.
 - Anything else (other files, other folders, symbolic links) fails the check. Files are at most 64 KiB.
 
