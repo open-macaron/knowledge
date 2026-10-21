@@ -21,8 +21,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  KNOWLEDGE_CLI_URL: https://github.com/open-macaron/macaron/releases/download/knowledge-cli-afd1f05dfcc9c629113e43c76f52e61bf744a13c/knowledge-cli.mjs
-  KNOWLEDGE_CLI_SHA256: "db2c93cba4e9a85a37a4db58329d90e751e222f6a69a0ea35f2dac2e223f4166"
+  KNOWLEDGE_CLI_URL: https://github.com/open-macaron/macaron/releases/download/knowledge-cli-44ad21bb92c7d4e7c283afa923802f13244d3a8d/knowledge-cli.mjs
+  KNOWLEDGE_CLI_SHA256: "dafdb535da4760d1040b442e2e80fc42e7622c5626cb204aefaabbb589a94d56"
 
 jobs:
   find:

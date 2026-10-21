@@ -84,6 +84,7 @@ The four `##` sections are required, with these exact names, in this order. Glob
 ````markdown
 ---
 topic: Building
+description: How to build the project and what the build checks. Use before building or changing the build.
 applies_to: ["src/**"]           # optional
 sources:                         # required: the evidence
   - https://github.com/axel7083/foobar-tmp-demo/pull/2
@@ -93,7 +94,9 @@ confidence: high                 # low | medium | high
 `npm run build` runs `tsc`: it type-checks and emits in one step.
 ````
 
-The bot never changes this repository directly: it opens pull requests from its fork, and the folder's owners decide. Only people write or promote rules.
+A lesson is an [Agent Skill](https://agentskills.io): every working run of the bot gets each lesson of its repository (global, its project, the repository) as a skill named after its scope and file. Only names and descriptions sit in the run's context; the agent loads a lesson's text when its `description` matches the task. So write the description for that choice: what the lesson covers and when it matters, the words a task would contain first, at most 1024 characters. It is optional for now; the topic stands in for it.
+
+The bot never changes this repository directly: it opens pull requests from its fork, and the folder's owners decide. It proposes lessons only when a trusted user asks with `@macaron-bot remember: …`, and revises a lesson that covers the topic rather than adding another. Only people write or promote rules.
 
 ## Owners and approvals
 
