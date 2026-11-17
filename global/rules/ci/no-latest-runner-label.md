@@ -3,8 +3,8 @@ title: Name the runner image instead of a `-latest` label
 severity: error
 applies_to: [".github/workflows/**"]
 sources:
-  - https://github.com/podman-desktop/agent-skills/pull/15#discussion_r4585449409
-  - https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration/
+  - https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories
+  - https://github.com/actions/runner-images#latest-migration-process
 ---
 ## Check
 Does an added or modified line choose a GitHub-hosted runner with a `-latest` label (`ubuntu-latest`, `ubuntu-latest-arm`, `windows-latest`, `macos-latest`, …), in `runs-on:` or in a matrix value that `runs-on:` uses?

@@ -3,8 +3,8 @@ title: Pin actions and reusable workflows to a full commit SHA
 severity: error
 applies_to: [".github/workflows/**", "**/action.yml", "**/action.yaml"]
 sources:
-  - https://github.com/podman-desktop/agent-skills/pull/15#discussion_r4585453110
-  - https://github.com/podman-desktop/gh-extensions-actions/issues/32
+  - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
+  - https://docs.github.com/en/actions/reference/security/secure-use#reusing-third-party-workflows
 ---
 ## Check
 Does an added or modified `uses:` line reference an action or a reusable workflow from another repository by something other than a full 40-character commit SHA?
