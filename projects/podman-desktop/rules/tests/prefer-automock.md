@@ -19,6 +19,7 @@ An added or modified line such as `vi.mock(import('node:fs'), () => ({ readFileS
 - Partial mocks with `importOriginal`: `vi.mock(import('…'), async importOriginal => ({ ...(await importOriginal()), foo: vi.fn() }))`.
 - Factories that return real values, constants, stores (`writable(…)`) or mock Svelte components.
 - `vi.mock(import('…'))` with no factory.
+- A factory for `electron`, or for a module that runs Electron code when imported (`electron-util/main`), or for an entry point whose import starts the app (`./main.js` in `index.spec.ts`): automock imports the real module to learn its shape, and in Node the `electron` package only exports the path of the Electron binary (`packages/main/vitest.setup.ts` mocks it by hand for that reason).
 - Lines that were not added or modified by the change.
 
 ## Examples
