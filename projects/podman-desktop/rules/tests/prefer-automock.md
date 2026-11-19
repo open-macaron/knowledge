@@ -19,6 +19,7 @@ An added or modified line such as `vi.mock(import('node:fs'), () => ({ readFileS
 - Partial mocks with `importOriginal`: `vi.mock(import('…'), async importOriginal => ({ ...(await importOriginal()), foo: vi.fn() }))`.
 - Factories that return real values, constants, stores (`writable(…)`) or mock Svelte components.
 - `vi.mock(import('…'))` with no factory.
+- A factory for a module that can't be imported for real in the test: automock imports the real module to learn its exports, so a module that fails or does work when imported (one that needs the Electron runtime, starts the app, opens connections) keeps its factory.
 - Lines that were not added or modified by the change.
 
 ## Examples
