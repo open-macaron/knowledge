@@ -21,6 +21,7 @@ In a test, an added or modified line that:
 - `assert(x)` / `assert(x, 'message')` imported from `vitest`, followed by plain use of `x`.
 - `expect(x).toBeDefined()` when the test only checks existence and doesn't use `x` afterwards.
 - `?.` in production code under test, or in an `expect(...)` on a value that may legitimately be absent (`expect(result?.name).toBe(...)`).
+- `?.` inside an `expect(...)` on a mock: `expect(provider.api?.getImage).toHaveBeenCalledWith(…)` fails loudly when the value is missing (`undefined` is not a spy), so nothing passes silently.
 - Lines that were not added or modified by the change.
 
 ## Examples

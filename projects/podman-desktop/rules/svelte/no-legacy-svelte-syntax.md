@@ -12,6 +12,7 @@ Any of them: runes mode isn't forced in `svelte.config.js`, so legacy syntax sti
 ## Not a violation
 - `$derived`, `$props()`, `onclick={…}`, callback props, snippets (`{@render children?.()}`).
 - `packages/ui`, which keeps `on:click` and dispatch for Svelte 4 extension callers (not in scope).
+- Syntax the line already had before the change: a moved line, or an edit that keeps an existing `on:click` while changing another attribute.
 - Lines that were not added or modified by the change.
 
 ## Examples
