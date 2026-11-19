@@ -21,6 +21,7 @@ An added or modified line that:
 - `{ … } as unknown as BigType` for a deliberately partial fixture of a large interface or class (the house style, about 2,000 uses on main).
 - `as const` on literals, and `satisfies`.
 - Casts needed because the value really has a wider type (e.g. `JSON.parse` results, `unknown` errors in `catch`).
+- A cast to another type the test needs, such as an interface the value implements or a related type its fixtures match: the rule is about casts that restate a type the value already has.
 - Lines that were not added or modified by the change.
 
 ## Examples
