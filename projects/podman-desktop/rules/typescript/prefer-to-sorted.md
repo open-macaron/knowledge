@@ -4,7 +4,6 @@ severity: warning
 applies_to: ["packages/*/src/**/*.ts"]
 exclude: ["**/*.spec.ts"]
 sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L66
   - https://github.com/podman-desktop/podman-desktop/blob/main/CODE-GUIDELINES.md
 ---
 ## Check

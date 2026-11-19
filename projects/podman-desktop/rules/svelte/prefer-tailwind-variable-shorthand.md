@@ -2,8 +2,6 @@
 title: Use Tailwind 4's text-(--pd-x) shorthand, not text-[var(--pd-x)]
 severity: warning
 applies_to: ["packages/renderer/src/**/*.svelte", "packages/ui/src/**/*.svelte"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L44
 ---
 ## Check
 Does an added or modified class use the arbitrary-value form `…-[var(--…)]` for a CSS variable?

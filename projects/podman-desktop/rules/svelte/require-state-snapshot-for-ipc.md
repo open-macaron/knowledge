@@ -2,8 +2,6 @@
 title: Pass $state.snapshot(x), not a $state proxy, to window.* calls
 severity: warning
 applies_to: ["packages/renderer/src/**/*.svelte", "packages/renderer/src/**/*.svelte.ts"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L51
 ---
 ## Check
 Does an added or modified line pass an object or array declared with `$state` (the declaration is in the diff or the same file) directly as an argument of a `window.*` call?

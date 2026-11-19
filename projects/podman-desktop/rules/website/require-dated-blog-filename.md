@@ -3,8 +3,6 @@ title: Name a blog post website/blog/YYYY-MM-DD-slug.mdx after its publication d
 severity: warning
 applies_to: ["website/blog/**"]
 exclude: ["website/blog/img/**"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L125
 ---
 ## Check
 Is an added blog post file not named `YYYY-MM-DD-<slug>.mdx`?

@@ -3,8 +3,6 @@ title: Take Podman Desktop's own paths from the injected Directories
 severity: warning
 applies_to: ["packages/main/src/**/*.ts"]
 exclude: ["**/*.spec.ts", "packages/main/src/plugin/directories*.ts"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L83
 ---
 ## Check
 Does an added or modified line build a path to Podman Desktop's own configuration, data, plugins, extensions storage or contributions from `os.homedir()`, `app.getPath(…)` or an environment variable, instead of a `Directories` method?

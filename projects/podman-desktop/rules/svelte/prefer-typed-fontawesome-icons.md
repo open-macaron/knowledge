@@ -3,8 +3,6 @@ title: Import typed FontAwesome icons, not "fas fa-…" class strings
 severity: warning
 applies_to: ["packages/renderer/src/**/*.svelte", "packages/renderer/src/**/*.ts", "packages/ui/src/**/*.svelte"]
 exclude: ["**/*.spec.ts", "packages/ui/src/lib/icons/Icon.svelte"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L52
 ---
 ## Check
 Does an added or modified line reference a FontAwesome icon by class string (`'fas fa-gear'`, `<i class="fas fa-rocket">`) instead of importing its definition?

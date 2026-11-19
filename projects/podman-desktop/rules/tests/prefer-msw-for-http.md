@@ -2,8 +2,6 @@
 title: Mock HTTP with msw, not nock or a real network call
 severity: warning
 applies_to: ["**/*.spec.ts"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L31
 ---
 ## Check
 Does an added or modified line in a unit test import `nock`, or make a real HTTP request (an unmocked `fetch`, `got`, `http.request` to a real URL)?

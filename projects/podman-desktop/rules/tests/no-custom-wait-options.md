@@ -2,8 +2,6 @@
 title: Keep the default interval and timeout of waitFor, vi.waitFor and vi.waitUntil
 severity: warning
 applies_to: ["**/*.spec.ts"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L32
 ---
 ## Check
 Does an added or modified line pass an `interval` or `timeout` option to `waitFor`, `vi.waitFor` or `vi.waitUntil`?

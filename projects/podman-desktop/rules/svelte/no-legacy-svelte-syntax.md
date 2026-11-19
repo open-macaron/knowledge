@@ -2,8 +2,6 @@
 title: Write Svelte 5 runes and callbacks, not Svelte 4 syntax
 severity: warning
 applies_to: ["packages/renderer/src/**/*.svelte"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L40
 ---
 ## Check
 Does an added or modified line use Svelte 4 syntax: `$:`, `export let`, an `on:event` directive, `createEventDispatcher` or `<slot>`?

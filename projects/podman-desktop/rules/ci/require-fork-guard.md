@@ -2,8 +2,6 @@
 title: Skip jobs on forks with github.event.repository.fork == false
 severity: warning
 applies_to: [".github/workflows/**"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L129
 ---
 ## Check
 Does an added job, in a workflow triggered by `push`, `schedule`, `release`, `workflow_run` or `issue_comment`, lack a fork guard in its `if:`? Quote the job's id line.

@@ -2,8 +2,6 @@
 title: Scope a new pnpm override to its parent or to a version range
 severity: warning
 applies_to: ["pnpm-workspace.yaml"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L109
 ---
 ## Check
 Does the change add an entry under `overrides:` with a bare package name (`qs: ^6.14.1`)?

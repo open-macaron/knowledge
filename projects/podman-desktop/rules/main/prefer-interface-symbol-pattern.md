@@ -3,8 +3,6 @@ title: Name an Inversify interface symbol after its interface and bind classes a
 severity: warning
 applies_to: ["packages/main/src/**/*.ts", "packages/api/src/**/*.ts"]
 exclude: ["**/*.spec.ts"]
-sources:
-  - https://github.com/podman-desktop/podman-desktop/blob/43ab21a323e014a4f4429e219adc5ae071d7e39b/.agents/skills/review-podman-desktop/references/rules.md#L79
 ---
 ## Check
 Does an added injection symbol or binding break the pattern: `export const Foo = Symbol.for('Foo')` declared right before `export interface Foo` (same name), classes bound with `bind(X).toSelf().inSingletonScope()`?
