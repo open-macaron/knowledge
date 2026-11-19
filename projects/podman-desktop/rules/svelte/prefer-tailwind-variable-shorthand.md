@@ -10,7 +10,7 @@ Does an added or modified class use the arbitrary-value form `…-[var(--…)]` 
 `text-[var(--pd-content-text)]`, `bg-[var(--pd-content-card-bg)]`: Tailwind 4 writes them `text-(--pd-content-text)`.
 
 ## Not a violation
-- Existing classes on lines the change doesn't otherwise touch: don't rewrite them in the same PR.
+- A class the line already had before the change: a moved or re-indented line, or an edit that changes another class (`rounded-md` → `{rounded}`) and keeps `bg-[var(--pd-content-card-bg)]`. Don't rewrite existing classes in the same PR.
 - Arbitrary values that aren't a lone variable (`w-[calc(100%-2rem)]`).
 - Lines that were not added or modified by the change.
 
